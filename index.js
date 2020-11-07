@@ -10,6 +10,8 @@ const port = 5000;
 const bodyParser = require('body-parser');
 const { User } = require("./models/User");
 
+const config = require('./config/key');
+
 // bodyParser 설정 : client <-> server간 통신
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
@@ -18,7 +20,7 @@ app.use(bodyParser.json());
 
 // MongoDB 연결
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://bokyundev:bokyun1234@boilerplate.ote0a.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected...')) // then : 완료
   .catch(err => console.log(err));                 // catch(err) : 에러
