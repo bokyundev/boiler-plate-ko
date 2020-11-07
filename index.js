@@ -23,7 +23,7 @@ mongoose.connect('mongodb+srv://bokyundev:bokyun1234@boilerplate.ote0a.mongodb.n
 }).then(() => console.log('MongoDB Connected...')) // then : 완료
   .catch(err => console.log(err));                 // catch(err) : 에러
 
-app.get('/', (req, res) => res.send('Hello World~~~!'));
+app.get('/', (req, res) => res.send('Hello World!'));
 
 app.post('/register', (req, res) => {
 
